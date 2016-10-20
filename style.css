@@ -1,0 +1,261 @@
+* {
+	margin: 0;
+	padding: 0;
+	font-family: 'Josefin Sans', sans-serif;
+	font-size: 16px;
+}
+
+body {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+}
+
+h1 {
+	font-size: 3rem;
+}
+
+body > * {
+	flex: 1 auto;
+}
+
+header {
+	width: 100%;
+	height: 3.5rem;
+	text-align: left;
+	background-color: #c3dac3;
+}
+
+a{
+	text-decoration: none;
+}
+
+#main-navigation:target {/*-- sets width of nav panel when opened --*/
+  width: 32%;
+}
+.navigation {/*-- Sets properties of nav panel (closed by default) --*/
+  width: 0;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 45%; /*-- sets the nav panel height --*/
+	transition: width .4s ease;
+	background-color: #EAEAEA;
+	z-index: 10000;
+	box-shadow: inset 5px 5px 0 #999, inset 0px -5px 0 #999;
+}
+.navigation h3 {/*-- positions the nav h3 element --*/
+	font-size: 2em;
+  padding-left: 30px;
+}
+.navigation ul { /*-- removes bullets from list items --*/
+	list-style-type: none;
+	font-size: 1.8em;
+  padding-left: 30px;
+}
+.navigation li a { /*-- sets anchors to block and pads them --*/
+	display: block;
+	padding: 30px;
+}
+.navigation li a:hover { /*-- sets anchor properties on hover --*/
+	background-color: #555;
+	color: #fff;
+}
+.icon-wrap { /*-- sets icon container position --*/
+	width: 60px;
+	height: 60px;
+	opacity: 0.4;
+	background: white;
+	border: 2px solid #555;
+	border-radius: 8px;
+	position: fixed;
+	z-index: 10;
+	top: 20px;
+	right: 20px;
+	-webkit-transistion: opacity 0.2s;
+	transition: opacity 0.2s;
+}
+.icon-wrap img{
+	width: 100%;
+	height: 100%;
+}
+.icon-wrap:hover { /*-- sets nav icon color on hover --*/
+	opacity: 1.0;
+}
+span.x-mark { /*-- sets close icon apperance and position --*/
+	color: #555;
+	font-size: 3em;
+	position: absolute;
+	top: 30px;
+	right: 30px;
+	padding: 0 .7rem;
+}
+span:hover.x-mark { /*-- sets close icon color on hover --*/
+	color: #999;
+}
+
+.main {
+	width: 100%;
+	height: auto;
+	background-color: #a1b0ab;
+}
+
+/*.slider {
+	width: 95%;
+	height: 80%;
+	margin: 2.5% auto;
+	background-color: yellow;
+}
+
+.slider-button {
+	display: inline-block;
+	width: 2rem;
+	height: 2rem;
+	line-height: 2rem;
+	border-radius: 1rem;
+	background-color: cyan;
+	text-align: center;
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+#slider-button-left {
+	background-color: magenta;
+}
+
+#slider-button-right {
+	left: calc(100% - 32px - 32px - 4px);
+}
+
+#slider-button-left:hover, #slider-button-right:hover {
+	background-color: orange;
+}*/
+
+.bxslidercontainer {
+	width: 95%;
+	max-width: 1280px;
+	height: auto;
+	margin: 0 auto;
+}
+
+.img-container {
+	box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+	border: 5px solid #CEA77D;
+	width: 95%;
+	margin: 0 auto;
+	margin-bottom: 2em;
+	background-color: #E5D2BE;
+	box-shadow: 0 5px 10px 10px rgba(20, 20, 20, 0.2);
+	-moz-box-shadow: 0 5px 10px 10px rgba(20, 20, 20, 0.2);
+	-webkit-box-shadow: 0 5px 10px 10px rgba(20, 20, 20, 0.2);
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-between;
+}
+
+.panel {
+	margin: 1rem;
+	flex: 1 300px;
+	flex-shrink: 0;
+	/*background-color: purple;*/
+	position: relative;
+	overflow: hidden;
+}
+
+.wide {
+	flex: 2 600px;
+}
+
+.panel > img {
+	display: block;
+	max-width: 100%;
+	height: auto;
+	margin: auto;
+}
+
+.panel-content{
+	height:auto;
+	width: 100%;
+}
+
+.panel-content img:hover .caption{
+	opacity: 1;
+}
+
+.caption {
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	background-color: rgba(0, 0, 0, 0.7);
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 2;
+	opacity: 0.0;
+	-webkit-transistion: opacity 0.5s;
+	transition: opacity 0.5s;
+}
+
+.caption > p {
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%);
+	font-size: 2rem;
+	color: white;
+}
+
+/*.caption:hover, .caption:focus {
+	opacity: 1.0;
+}*/
+
+.caption:active {
+	opacity: 1.0;
+}
+
+.modal-exit {
+	position: absolute;
+	top: 1rem;
+	right: 2rem;
+	color: white;
+	font-size: 2rem;
+	font-weight: bold;
+	transition: 0.3s;
+}
+
+.modal-exit:hover, .model-exit:focus {
+	color: #f00;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+footer {
+	width: 100%;
+	height: 20px;
+	text-align: center;
+	background-color: #6b6054;
+}
+
+@media only screen and (min-width: 1080px) {
+	.panel {
+		margin: 1rem;
+		flex: 1 300px;
+		/*background-color: purple;*/
+		position: relative;
+		overflow: hidden;
+	}
+
+	.wide {
+		flex: 2 600px;
+	}
+	.caption:hover, .caption:focus {
+		opacity: 1.0;
+	}
+	
+	.modal-exit{
+		display: none;
+	}
+}
