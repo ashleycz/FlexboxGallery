@@ -7,16 +7,11 @@
 
 body {
 	width: 100%;
-	display: flex;
-	flex-direction: column;
+	height: auto;
 }
 
 h1 {
 	font-size: 3rem;
-}
-
-body > * {
-	flex: 1 auto;
 }
 
 header {
@@ -27,23 +22,24 @@ header {
 }
 
 a{
-	text-decoration: none;
+	font-weight: 700;
 }
 
 #main-navigation:target {/*-- sets width of nav panel when opened --*/
-  width: 32%;
+  width: 100%;
 }
 .navigation {/*-- Sets properties of nav panel (closed by default) --*/
   width: 0;
+  text-align: center;
   overflow: hidden;
   position: fixed;
   top: 0;
   right: 0;
   height: 45%; /*-- sets the nav panel height --*/
 	transition: width .4s ease;
-	background-color: #EAEAEA;
+	background-color: #c3dac3;
 	z-index: 10000;
-	box-shadow: inset 5px 5px 0 #999, inset 0px -5px 0 #999;
+	box-shadow: inset 5px 5px 0 #6b6054, inset 0px -5px 0 #6b6054;
 }
 .navigation h3 {/*-- positions the nav h3 element --*/
 	font-size: 2em;
@@ -57,10 +53,20 @@ a{
 .navigation li a { /*-- sets anchors to block and pads them --*/
 	display: block;
 	padding: 30px;
+	text-decoration: none;
 }
 .navigation li a:hover { /*-- sets anchor properties on hover --*/
-	background-color: #555;
-	color: #fff;
+	cursor: pointer;
+	text-decoration: line-through;
+}
+.toggled{
+	display: block;
+	padding: 30px;
+	text-decoration: line-through;
+}
+.toggled:hover { /*-- sets anchor properties on hover --*/
+	cursor: pointer;
+	text-decoration: none;
 }
 .icon-wrap { /*-- sets icon container position --*/
 	width: 60px;
@@ -85,10 +91,10 @@ a{
 }
 span.x-mark { /*-- sets close icon apperance and position --*/
 	color: #555;
-	font-size: 3em;
+	font-size: 2em;
 	position: absolute;
-	top: 30px;
-	right: 30px;
+	top: 10px;
+	right: 10px;
 	padding: 0 .7rem;
 }
 span:hover.x-mark { /*-- sets close icon color on hover --*/
@@ -98,44 +104,30 @@ span:hover.x-mark { /*-- sets close icon color on hover --*/
 .main {
 	width: 100%;
 	height: auto;
+	min-height: calc(100vh - 3.5rem - 40px);
+	padding: 10px 0;
 	background-color: #a1b0ab;
 }
 
-/*.slider {
+#slider-and-info{
 	width: 95%;
-	height: 80%;
-	margin: 2.5% auto;
-	background-color: yellow;
+	height: auto;
+	margin: 0 auto;
+	display: flex;
+	flex-flow: column;
+	justify-content: space-between;
 }
 
-.slider-button {
-	display: inline-block;
-	width: 2rem;
-	height: 2rem;
-	line-height: 2rem;
-	border-radius: 1rem;
-	background-color: cyan;
+#slider-and-info > *{
+	flex: 1 300px;
+	margin: 1rem;
 	text-align: center;
 	position: relative;
-	top: 50%;
-	transform: translateY(-50%);
 }
-
-#slider-button-left {
-	background-color: magenta;
-}
-
-#slider-button-right {
-	left: calc(100% - 32px - 32px - 4px);
-}
-
-#slider-button-left:hover, #slider-button-right:hover {
-	background-color: orange;
-}*/
 
 .bxslidercontainer {
 	width: 95%;
-	max-width: 1280px;
+	max-width: 278px;
 	height: auto;
 	margin: 0 auto;
 }
@@ -160,7 +152,6 @@ span:hover.x-mark { /*-- sets close icon color on hover --*/
 .panel {
 	margin: 1rem;
 	flex: 1 300px;
-	flex-shrink: 0;
 	/*background-color: purple;*/
 	position: relative;
 	overflow: hidden;
@@ -192,8 +183,11 @@ span:hover.x-mark { /*-- sets close icon color on hover --*/
 	text-align: center;
 	background-color: rgba(0, 0, 0, 0.7);
 	position: absolute;
+	margin-left: auto;
+	margin-right: auto;
 	top: 0;
 	left: 0;
+	right: 0;
 	z-index: 2;
 	opacity: 0.0;
 	-webkit-transistion: opacity 0.5s;
@@ -239,7 +233,16 @@ footer {
 	background-color: #6b6054;
 }
 
-@media only screen and (min-width: 1080px) {
+@media only screen and (min-device-width: 760px) and (min-width: 760px){
+	#main-navigation:target {/*-- sets width of nav panel when opened --*/
+	  max-width: 32%;
+	  width: 20em;
+	}
+	
+	.navigation{
+		text-align: left;
+	}
+	
 	.panel {
 		margin: 1rem;
 		flex: 1 300px;
@@ -251,11 +254,18 @@ footer {
 	.wide {
 		flex: 2 600px;
 	}
-	.caption:hover, .caption:focus {
-		opacity: 1.0;
-	}
 	
 	.modal-exit{
 		display: none;
+	}
+}
+
+@media only screen and (min-device-width: 760px){
+	#slider-and-info{
+		flex-flow: row wrap;
+	}
+	
+	.caption:hover, .caption:focus {
+		opacity: 1.0;
 	}
 }
